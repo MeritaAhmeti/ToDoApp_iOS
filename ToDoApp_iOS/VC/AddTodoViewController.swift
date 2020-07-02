@@ -12,6 +12,7 @@ class AddTodoViewController: UIViewController {
     // MARK: Outlets
 
     @IBOutlet weak var textView: UITextView!
+   
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -19,35 +20,39 @@ class AddTodoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow(with:)),
-            name: .UIKeyboardWillShow, object: nil
-        )
+        //Do any additional setup after loading the view.
+        //NotificationCenter.default.addObserver(
+      //  self,
+       // selector: #selector(keyboardWillShow(with:)),
+       // name: .UIKeyboardWillShow, object: nil
+       // )
+       // textView.becomeFirstResponder()
     }
     // MARK: Actions
     
-    @objc func keyboardWillShow(with notification: Notification){
-        let key = "UIKeyboardFrameEndUserInfoKey"
-        guard let keyboardFrame = notification.userInfo?[key] as? NSValue else { return }
+   // @objc func keyboardWillShow(with notification: Notification){
+     //   let key = "UIKeyboardFrameEndUserInfoKey"
+       // guard let keyboardFrame = notification.userInfo?[key] as? NSValue else { return }
         
-        let keyboardHeight = keyboardFrame.cgRectValue.height + 16
+       // let keyboardHeight = keyboardFrame.cgRectValue.height + 16
         
-        bottomConstraint.constant = keyboardHeight
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
+       // bottomConstraint.constant = keyboardHeight
+       // UIView.animate(withDuration: 0.3) {
+      //  self.view.layoutIfNeeded()
             
-        }
-        
-    }
+    //  }
+
+   // }
     
     @IBAction func cancel(_ sender: UIButton) {
         dismiss(animated: true)
-    }
-    @IBAction func done(_ sender: UIButton) {
+        textView.resignFirstResponder()
     }
     
+    @IBAction func done(_ sender: UIButton) {
+        dismiss(animated: true)
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -59,3 +64,27 @@ class AddTodoViewController: UIViewController {
     */
 
 }
+extension AddTodoViewController: UITextViewDelegate{
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if doneButton.isHidden{
+            textView.text.removeAll()
+            textView.textColor = .white
+            
+            doneButton.isHidden = false
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

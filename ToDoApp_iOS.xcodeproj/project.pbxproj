@@ -14,6 +14,7 @@
 		FDF0468124AE20BF003C5156 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDF0467F24AE20BF003C5156 /* Main.storyboard */; };
 		FDF0468324AE20BF003C5156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDF0468224AE20BF003C5156 /* Assets.xcassets */; };
 		FDF0468624AE20BF003C5156 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDF0468424AE20BF003C5156 /* LaunchScreen.storyboard */; };
+		FDF0469024AEA3E7003C5156 /* MyDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDF0468E24AEA3E7003C5156 /* MyDatabase.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FDF0468224AE20BF003C5156 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDF0468524AE20BF003C5156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDF0468724AE20BF003C5156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDF0468F24AEA3E7003C5156 /* MyDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDatabase.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		FDF0467A24AE20BF003C5156 /* ToDoApp_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FDF0468D24AEA392003C5156 /* Database */,
 				2D60209C24AE43F900B8D5CF /* VC */,
 				FDF0467B24AE20BF003C5156 /* AppDelegate.swift */,
 				FDF0467D24AE20BF003C5156 /* ViewController.swift */,
@@ -76,6 +79,14 @@
 				FDF0468724AE20BF003C5156 /* Info.plist */,
 			);
 			path = ToDoApp_iOS;
+			sourceTree = "<group>";
+		};
+		FDF0468D24AEA392003C5156 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FDF0468E24AEA3E7003C5156 /* MyDatabase.xcdatamodeld */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF0469024AEA3E7003C5156 /* MyDatabase.xcdatamodeld in Sources */,
 				FDF0467E24AE20BF003C5156 /* ViewController.swift in Sources */,
 				2D6020A024AE450800B8D5CF /* TodoTableViewController.swift in Sources */,
 				2D60209E24AE44CC00B8D5CF /* AddTodoViewController.swift in Sources */,
@@ -336,6 +348,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FDF0468E24AEA3E7003C5156 /* MyDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FDF0468F24AEA3E7003C5156 /* MyDatabase.xcdatamodel */,
+			);
+			currentVersion = FDF0468F24AEA3E7003C5156 /* MyDatabase.xcdatamodel */;
+			path = MyDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FDF0467024AE20BF003C5156 /* Project object */;
 }
