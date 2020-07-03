@@ -79,8 +79,16 @@ class TodoTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title:"Check" ) {(action, view, completion) in
-            //Todo: Check todo
-            completion(true)
+            let todo = self.resultsController.object(at: indexPath)
+            self.resultsController.managedObjectContext.delete(todo)
+            do{
+                try self.resultsController.managedObjectContext.save()
+                completion(true)
+            }
+            catch{
+                print("delete failed: \(error)")
+                completion(false)
+            }
             
         }
         action.image = #imageLiteral(resourceName: "check")
@@ -90,6 +98,9 @@ class TodoTableViewController: UITableViewController {
         return UISwipeActionsConfiguration(actions: [action])
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowAddTodo", sender: tableView.cellForRow(at: indexPath))
+    }
     
     // MARK: - Navigation
 
@@ -97,6 +108,13 @@ class TodoTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let _ = sender as? UIBarButtonItem, let vc = segue.destination as? AddTodoViewController{
             vc.managedContext = resultsController.managedObjectContext
+        }
+        if let cell = sender as? UITableViewCell, let vc = segue.destination as? AddTodoViewController{
+            vc.managedContext = resultsController.managedObjectContext
+            if let indexPath = tableView.indexPath(for: cell){
+            let todo = resultsController.object(at: indexPath)
+            vc.todo = todo
+            }
         }
     }
 }
@@ -116,6 +134,11 @@ extension TodoTableViewController: NSFetchedResultsControllerDelegate{
         case .delete:
             if let indexPath = indexPath{
                 tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath){
+                let todo = resultsController.object(at: indexPath)
+                cell.textLabel?.text = todo.title
             }
         default:
             break

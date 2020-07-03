@@ -13,6 +13,7 @@ class AddTodoViewController: UIViewController {
     //MARK: - Properties
     
     var managedContext: NSManagedObjectContext!
+    var todo: Todo?
     
     // MARK: Outlets
 
@@ -32,6 +33,11 @@ class AddTodoViewController: UIViewController {
        // name: .UIKeyboardWillShow, object: nil
        // )
        // textView.becomeFirstResponder()
+        if let todo = todo{
+            textView.text = todo.title
+            textView.text = todo.title
+            segmentedControl.selectedSegmentIndex = Int(todo.priority)
+        }
     }
     // MARK: Actions
     
@@ -63,10 +69,16 @@ class AddTodoViewController: UIViewController {
             return
         }
         
-        let todo = Todo(context: managedContext)
-        todo.title = title
-        todo.priority = Int16(segmentedControl.selectedSegmentIndex)
-        todo.date = Date()
+        if let todo = self.todo{
+            todo.title = title
+            todo.priority = Int16(segmentedControl.selectedSegmentIndex)
+        }else{
+        
+            let todo = Todo(context: managedContext)
+            todo.title = title
+            todo.priority = Int16(segmentedControl.selectedSegmentIndex)
+            todo.date = Date()
+        }
         
         do{
             try managedContext.save()
