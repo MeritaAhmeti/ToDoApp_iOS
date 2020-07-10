@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class Person{
+    
+    var name: String = ""
+    var email: String = ""
+    var id: Int = 0
+    
+    init(id:Int, name:String, email:String){
+        self.id = id
+        self.name = name
+        self.email = email
+    }
+}
