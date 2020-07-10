@@ -5,7 +5,6 @@
 //  Created by Merita Ahmeti on 7/2/20.
 //  Copyright © 2020 Merita Ahmeti. All rights reserved.
 //
-
 import UIKit
 
 @UIApplicationMain
