@@ -21,19 +21,14 @@ class ContactUsController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        personTable.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+    personTable.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         personTable.delegate = self
         personTable.dataSource = self
         
         db.insert(id: 1, name: "Elsa", email: "morinaelsa01@gmail.com")
         db.insert(id: 2, name: "Merita", email: "meritaahmeti1998@gmail.com")
         persons = db.read()
-    }
-    @IBAction func buttonClose(_ sender: UIButton) {
-         
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
