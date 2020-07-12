@@ -11,14 +11,11 @@ import CoreData
 
 class AddTodoViewController: UIViewController {
     //MARK: - Properties
-    
     var managedContext: NSManagedObjectContext!
     var todo: Todo?
     
     // MARK: Outlets
-
     @IBOutlet weak var textView: UITextView!
-   
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -35,13 +32,26 @@ class AddTodoViewController: UIViewController {
         dismiss(animated: true)
         textView.resignFirstResponder()
     }
-    @IBAction func cancel(_ sender: UIButton) {
+    @IBAction func cancel(_ sender: Any) {
+        
+        let alert = UIAlertController(title:"Cancel?" ,    message:"Are you sure you want to cancel?",preferredStyle: .alert)
+        let yesButton = UIAlertAction(title:"Yes", style: .default, handler: self.yes)
+        let noButton = UIAlertAction(title:"No", style: .cancel ,handler: nil )
+        alert.addAction(yesButton)
+        alert.addAction(noButton)
+        self.present(alert, animated: true, completion: nil)
+
+    }
+    
+    func yes(alert: UIAlertAction!){
         dismissAndResign()
     }
-    @IBAction func done(_ sender: UIButton) {
+    
+    @IBAction func done(_ sender: Any) {
         guard let title = textView.text, !title.isEmpty else{
             return
         }
+        
         if let todo = self.todo{
             todo.title = title
             todo.priority = Int16(segmentedControl.selectedSegmentIndex)
@@ -58,7 +68,9 @@ class AddTodoViewController: UIViewController {
             print("Error saving Todo: \(error)")
         }
     }
+    
 }
+
 extension AddTodoViewController: UITextViewDelegate{
     func textViewDidChangeSelection(_ textView: UITextView) {
         if doneButton.isHidden{
