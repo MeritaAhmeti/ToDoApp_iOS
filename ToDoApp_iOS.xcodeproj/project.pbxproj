@@ -13,6 +13,7 @@
 		FD317CC724B89C3C005AB10E /* ContactUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD317CC624B89C3C005AB10E /* ContactUsController.swift */; };
 		FD317CC924B89D0B005AB10E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD317CC824B89D0B005AB10E /* Person.swift */; };
 		FD317CCB24B89D3D005AB10E /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD317CCA24B89D3D005AB10E /* DBHelper.swift */; };
+		FDD90E1A24C4CE7600B671FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FDD90E1924C4CE7600B671FD /* README.md */; };
 		FDF0467C24AE20BF003C5156 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF0467B24AE20BF003C5156 /* AppDelegate.swift */; };
 		FDF0467E24AE20BF003C5156 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF0467D24AE20BF003C5156 /* ViewController.swift */; };
 		FDF0468124AE20BF003C5156 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDF0467F24AE20BF003C5156 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		FD317CC624B89C3C005AB10E /* ContactUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsController.swift; sourceTree = "<group>"; };
 		FD317CC824B89D0B005AB10E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		FD317CCA24B89D3D005AB10E /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		FDD90E1924C4CE7600B671FD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FDF0467824AE20BF003C5156 /* ToDoApp_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF0467B24AE20BF003C5156 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDF0467D24AE20BF003C5156 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		FDF0466F24AE20BF003C5156 = {
 			isa = PBXGroup;
 			children = (
+				FDD90E1924C4CE7600B671FD /* README.md */,
 				FDF0467A24AE20BF003C5156 /* ToDoApp_iOS */,
 				FDF0467924AE20BF003C5156 /* Products */,
 			);
@@ -162,6 +165,7 @@
 			files = (
 				FDF0468624AE20BF003C5156 /* LaunchScreen.storyboard in Resources */,
 				FDF0468324AE20BF003C5156 /* Assets.xcassets in Resources */,
+				FDD90E1A24C4CE7600B671FD /* README.md in Resources */,
 				FDF0468124AE20BF003C5156 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
